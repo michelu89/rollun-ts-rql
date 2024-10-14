@@ -1,11 +1,10 @@
 import { SubLexerInterface } from '../interfaces';
 import Token, { TokenTypeNameMap } from '../Token';
-import * as locutus from 'locutus';
 
 export default class StringSubLexer implements SubLexerInterface {
-	getTokenAt(code, cursor) {
+	getTokenAt(code: any, cursor: any) {
 		const matches = code.slice(cursor).match(new RegExp(/^([a-z0-9]|%[0-9a-f]{2})+/, 'i'));
-		if (!matches || locutus.php.ctype.ctype_digit(matches[0])) {
+		if (!matches || ctype_digit(matches[0])) {
 			return null;
 		}
 		return new Token(
@@ -15,4 +14,8 @@ export default class StringSubLexer implements SubLexerInterface {
 			cursor + matches[0].length
 		);
 	}
+}
+
+function ctype_digit(str: string): boolean {
+	return /^[0-9]+$/.test(str);
 }

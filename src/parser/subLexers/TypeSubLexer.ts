@@ -3,7 +3,7 @@ import { SubLexerInterface } from '../interfaces';
 
 export default class TypeSubLexer implements SubLexerInterface {
 
-	getTokenAt(code, cursor) {
+	getTokenAt(code: any, cursor: any) {
 		const matches = code.slice(cursor).match(new RegExp('^[a-z]\\w*(?=:)', 'i'));
 		if (matches) {
 			return new Token(

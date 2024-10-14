@@ -4,7 +4,7 @@ import Glob from '../Glob';
 
 export default class GlobSubLexer implements SubLexerInterface {
 
-	getTokenAt(code, cursor) {
+	getTokenAt(code: any, cursor: any) {
 		const matches = code.slice(cursor).match(new RegExp('^([a-z0-9\*\?]|\%[0-9a-f]{2})+', 'i'));
 		if (!matches) {
 			return null;
@@ -19,9 +19,9 @@ export default class GlobSubLexer implements SubLexerInterface {
 			cursor + matches[0].length);
 	}
 
-	decodeGlob(glob) {
+	decodeGlob(glob: any) {
 		return glob.replace(new RegExp(/[^\*\?]+/, 'i'),
-			(encoded) => {
+			(encoded: any) => {
 				return Glob.encode(decodeURIComponent(encoded));
 			}
 		);

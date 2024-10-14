@@ -1,6 +1,5 @@
 import { NodeParserInterface } from './interfaces';
 import TokenStream             from './TokenStream';
-import GroupbyNodeParser       from './nodeParsers/GroupbyNodeParser';
 
 export default class NodeParserChain implements NodeParserInterface {
 	protected nodeParsers: NodeParserInterface[] = [];

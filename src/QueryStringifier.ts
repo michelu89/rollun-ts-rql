@@ -49,9 +49,9 @@ export default class QueryStringifier {
 			cleanKey = key.slice(1);
 		}
 		const methodName = `parse${ cleanKey[0].toUpperCase() }${ cleanKey.slice(1) }`;
-		const handler    = this[methodName];
+		const handler    = (this as any)[methodName];
 		if (handler) {
-			return this[methodName](node);
+			return (this as any)[methodName](node);
 		} else {
 			throw new Error(`Node parser with name "${ methodName }" is not a function!`);
 		}

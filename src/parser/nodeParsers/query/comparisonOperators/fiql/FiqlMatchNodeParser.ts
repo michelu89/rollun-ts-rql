@@ -6,7 +6,7 @@ export default class FiqlMatchNodeParser extends AbstractComparisonFiqlNodeParse
 		return 'match';
 	}
 
-	protected createNode(field, value) {
+	protected createNode(field: any, value: any) {
 		return new Contains(field, value);
 	}
 }

@@ -19,23 +19,23 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-    - uses: actions/checkout@v2
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
 
-    # Runs a single command using the runners shell
-    - name: Build
-      run: npm install
+      # Runs a single command using the runners shell
+      - name: Build
+        run: npm install
 
-    # Runs a set of commands using the runners shell
-    - name: test
-      run: |
+      # Runs a set of commands using the runners shell
+      - name: test
+        run: |
           npm run test:ci
           npm run update:badge
 
-    - uses: EndBug/add-and-commit@v7
-      with:
-        add: 'README.md'
-        author_name: Update-bot
-        message: 'Update README.md from update-bot'
-        push: true
+      - uses: EndBug/add-and-commit@v7
+        with:
+          add: 'README.md'
+          author_name: Update-bot
+          message: 'Update README.md from update-bot'
+          push: true
 

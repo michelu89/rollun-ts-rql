@@ -12,7 +12,7 @@ function encodeString(value: string) {
 			')': '%29',
 			'*': '%2A'
 		};
-		return encodingMap[value];
+		return (encodingMap as any)[value];
 	});
 }
 
@@ -34,7 +34,7 @@ function testSyntaxError(rql: string, errorMessage: string) {
 		const lexer = new Lexer();
 		lexer.tokenize(rql);
 	} catch (error) {
-		expect(error.message).toEqual(errorMessage);
+		expect((error as any).message).toEqual(errorMessage);
 	}
 }
 

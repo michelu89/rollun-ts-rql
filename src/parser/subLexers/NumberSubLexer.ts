@@ -2,7 +2,7 @@ import { SubLexerInterface } from '../interfaces';
 import Token, { TokenTypeNameMap } from '../Token';
 
 export default class NumberSubLexer implements SubLexerInterface {
-	getTokenAt(code, cursor) {
+	getTokenAt(code: any, cursor: any) {
 		const matches = code.slice(cursor).match(new RegExp('^[-+]?[0-9]*\\.?[0-9]+(?:[eE][-+]?[0-9]+)?'), 'i');
 		if (matches) {
 			return new Token(

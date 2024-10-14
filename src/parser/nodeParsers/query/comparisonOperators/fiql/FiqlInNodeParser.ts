@@ -7,7 +7,7 @@ export default class FiqlInNodeParser extends AbstractComparisonFiqlNodeParser {
 		return 'in';
 	}
 
-	protected createNode(field, value) {
+	protected createNode(field: any, value: any) {
 		return new In(field, value);
 	}
 }

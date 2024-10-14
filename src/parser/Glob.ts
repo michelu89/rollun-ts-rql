@@ -1,4 +1,4 @@
-import * as locutus from 'locutus';
+import { addcslashes, pregQuote, stripslashes, strtr } from '../utils/ObjectAndStringUtils';
 
 export default class Glob {
 	private readonly glob: string;
@@ -8,10 +8,7 @@ export default class Glob {
 	}
 
 	static encode(value: string): string {
-		// disable encoding of wildcard for now, because it disables usage of wildcard
-		// need to figure out if something will break.
-		// return locutus.php.strings.addcslashes(value, '\\?*');
-		return value;
+		return addcslashes(value, '\\?*');
 	}
 
 	toString() {
@@ -27,13 +24,13 @@ export default class Glob {
 			if (match[0] === '?') {
 				return one;
 			}
-			return escaper(locutus.php.strings.stripslashes(match[0]));
+			return escaper(stripslashes(match[0]));
 		});
 	}
 
 	toRql(): string {
 		return this.decoder('*', '?', (char: string) => {
-			return locutus.php.strings.strtr(encodeURIComponent(char), {
+			return strtr(encodeURIComponent(char), {
 				'-': '%2D',
 				'_': '%5F',
 				'.': '%2E',
@@ -47,7 +44,7 @@ export default class Glob {
 			'.*',
 			'.',
 			function (char: string) {
-				return locutus.php.pcre.preg_quote(char, '/');
+				return pregQuote(char, '/');
 			}
 		);
 		return '^' + regex + '$';
@@ -58,7 +55,7 @@ export default class Glob {
 			'%',
 			'_',
 			function ($char) {
-				return locutus.php.strings.addcslashes($char, '\\%_');
+				return addcslashes($char, '\\%_');
 			}
 		);
 	}

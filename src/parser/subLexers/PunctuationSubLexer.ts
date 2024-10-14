@@ -2,7 +2,7 @@ import { SubLexerInterface } from '../interfaces';
 import Token, { TokenTypeNameMap } from '../Token';
 
 export default class PunctuationSubLexer implements SubLexerInterface {
-	getTokenAt(code, cursor) {
+	getTokenAt(code: any, cursor: any) {
 		const test = code.slice(cursor, cursor + 1);
 		if (test === '&') {
 			return new Token(TokenTypeNameMap.T_AMPERSAND, test, cursor, cursor + 1);

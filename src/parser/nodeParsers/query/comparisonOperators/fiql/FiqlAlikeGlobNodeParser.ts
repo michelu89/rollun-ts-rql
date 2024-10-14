@@ -6,7 +6,7 @@ export default class FiqlAlikeGlobNodeParser extends AbstractComparisonFiqlNodeP
 		return 'alike';
 	}
 
-	protected createNode(field, value) {
+	protected createNode(field: any, value: any) {
 		return new AlikeGlob(field, value);
 	}
 }

@@ -7,7 +7,7 @@ export default class OutNodeParser extends AbstractComparisonRqlNodeParser {
 		return 'out';
 	}
 
-	protected createNode(field, value) {
+	protected createNode(field: any, value: any) {
 		return new Out(field, value);
 	}
 }

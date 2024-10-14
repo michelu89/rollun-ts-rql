@@ -7,7 +7,7 @@ export default class InNodeParser extends AbstractComparisonRqlNodeParser {
 		return 'in';
 	}
 
-	protected createNode(field, value) {
+	protected createNode(field: any, value: any) {
 		return new In(field, value);
 	}
 }

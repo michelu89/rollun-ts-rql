@@ -23,12 +23,12 @@ export default class ScalarParser implements SubParserInterface {
 		return value;
 	}
 
-	registerTypeCaster(type, typeCaster: TypeCasterInterface) {
+	registerTypeCaster(type: any, typeCaster: TypeCasterInterface) {
 		this.typeCasters[type] = typeCaster;
 		return this;
 	}
 
-	getTypeCaster(type) {
+	getTypeCaster(type: any) {
 		if (this.typeCasters[type]) {
 			return this.typeCasters[type];
 

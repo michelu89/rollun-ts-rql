@@ -7,7 +7,7 @@ export default class FiqlGtNodeParser extends AbstractComparisonFiqlNodeParser {
 		return 'gt';
 	}
 
-	protected createNode(field, value) {
+	protected createNode(field: any, value: any) {
 		return new Gt(field, value);
 	}
 }

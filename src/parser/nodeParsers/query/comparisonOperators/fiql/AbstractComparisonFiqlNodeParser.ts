@@ -1,7 +1,7 @@
 import TokenStream from '../../../../TokenStream';
 import AbstractComparisonOperatorNodeParser from '../AbstractComparisonOperatorNodeParser';
 import { TokenTypeNameMap } from '../../../../Token';
-import * as lodash from 'lodash';
+import { cloneDeep } from '../../../../../utils/ObjectAndStringUtils';
 
 export default abstract class AbstractComparisonFiqlNodeParser extends AbstractComparisonOperatorNodeParser {
 
@@ -14,7 +14,7 @@ export default abstract class AbstractComparisonFiqlNodeParser extends AbstractC
 
 	supports(tokenStream: TokenStream) {
 		try {
-			tokenStream = lodash.cloneDeep(tokenStream);
+			tokenStream = cloneDeep(tokenStream);
 			this.fieldNameParser.parse(tokenStream);
 			return tokenStream.test(TokenTypeNameMap.T_OPERATOR, this.getOperatorName());
 		} catch (error) {

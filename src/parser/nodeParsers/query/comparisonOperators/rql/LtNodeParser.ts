@@ -7,7 +7,7 @@ export default class LtNodeParser extends AbstractComparisonRqlNodeParser {
 		return 'lt';
 	}
 
-	protected createNode(field, value) {
+	protected createNode(field: any, value: any) {
 		return new Lt(field, value);
 	}
 }

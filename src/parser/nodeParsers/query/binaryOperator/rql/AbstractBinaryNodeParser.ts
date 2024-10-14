@@ -3,9 +3,9 @@ import TokenStream from '../../../../TokenStream';
 import { NodeParserInterface } from '../../../../interfaces';
 
 export default abstract class AbstractBinaryNodeParser implements NodeParserInterface  {
-	protected abstract createNode(field: string);
-	protected abstract getOperatorName();
-	public abstract supports(tokenStream: TokenStream);
+	protected abstract createNode(field: string): any;
+	protected abstract getOperatorName(): any;
+	public abstract supports(tokenStream: TokenStream): any;
 	public parse(tokenStream: TokenStream) {
 	tokenStream.expect(TokenTypeNameMap.T_OPERATOR, this.getOperatorName());
 	tokenStream.expect(TokenTypeNameMap.T_OPEN_PARENTHESIS);

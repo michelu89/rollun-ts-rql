@@ -49,7 +49,7 @@ export default class Parser {
 
 	protected nodeParser;
 
-	constructor(nodeParser: NodeParserInterface = null) {
+	constructor(nodeParser: NodeParserInterface | null = null) {
 		this.nodeParser = nodeParser ? nodeParser : Parser.createDefaultNodeParser();
 	}
 

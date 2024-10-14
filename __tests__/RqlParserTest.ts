@@ -1,5 +1,4 @@
 import Query                 from '../src/Query';
-import * as lodash           from 'lodash';
 import RqlParser             from '../src/RqlParser';
 import AggregateFunctionNode from '../src/nodes/aggregateNodes/AggregateFunctionNode';
 import Sort                  from '../src/nodes/Sort';
@@ -48,7 +47,7 @@ describe('RQL Parser Test', () => {
 		);
 		const parser = new RqlParser();
 		const actualQueryObject = parser.parse(rqlString);
-		expect(lodash.isEqual(actualQueryObject, expectedQueryObject)).toBeTruthy();
+		expect(actualQueryObject).toEqual(expectedQueryObject);
 	});
 	test('Test complex RQL parsing', () => {
 			let rqlString = 'and(and(eq(q,null()),ne(q,null()),le(q,r),ge(q,u),eqn(a),eqf(b),eqt(c),alike(d,*abc?),ie(f)),or(lt(q,t),gt(q,y),in(q,(a,s,d,f,g))))';
@@ -85,7 +84,7 @@ describe('RQL Parser Test', () => {
 			});
 			const parser = new RqlParser();
 			const actualQueryObject = parser.parse(rqlString);
-			expect(lodash.isEqual(actualQueryObject, expectedQueryObject)).toBeTruthy();
+			expect(actualQueryObject).toEqual(expectedQueryObject);
 		});
 	test.each([
 		'limit(20,0)&alike(description,string:R*)',

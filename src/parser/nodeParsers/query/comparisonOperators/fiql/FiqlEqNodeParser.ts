@@ -7,7 +7,7 @@ export default class FiqlEqNodeParser extends AbstractComparisonFiqlNodeParser {
 		return 'eq';
 	}
 
-	protected createNode(field, value) {
+	protected createNode(field: any, value: any) {
 		return new Eq(field, value);
 	}
 }

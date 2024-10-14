@@ -3,7 +3,7 @@ import Token, { TokenTypeNameMap } from '../Token';
 
 export default class DatetimeSubLexer implements SubLexerInterface {
 
-	getTokenAt(code, cursor) {
+	getTokenAt(code: any, cursor: any) {
 		const regExp = new RegExp(/^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2})Z/);
 		const matches = decodeURIComponent(code.slice(cursor)).match(regExp);
 		if (!matches) {

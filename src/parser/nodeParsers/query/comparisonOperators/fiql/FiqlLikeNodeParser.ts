@@ -7,7 +7,7 @@ export default class FiqlLikeNodeParser extends AbstractComparisonFiqlNodeParser
 		return 'like';
 	}
 
-	protected createNode(field, value) {
+	protected createNode(field: any, value: any) {
 		return new Like(field, value);
 	}
 }

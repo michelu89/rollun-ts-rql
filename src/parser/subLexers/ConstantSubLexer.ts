@@ -3,7 +3,7 @@ import { SubLexerInterface } from '../interfaces';
 
 export default class ConstantSubLexer implements SubLexerInterface {
 
-	getTokenAt(code, cursor) {
+	getTokenAt(code: any, cursor: any) {
 		const test7 = code.slice(cursor, cursor + 7);
 		if (test7 === 'empty()') {
 			return new Token(TokenTypeNameMap.T_EMPTY, test7, cursor, cursor + 7);

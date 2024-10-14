@@ -7,7 +7,7 @@ export default class LeNodeParser extends AbstractComparisonRqlNodeParser {
 		return 'le';
 	}
 
-	protected createNode(field, value) {
+	protected createNode(field: any, value: any) {
 		return new Le(field, value);
 	}
 }

@@ -7,7 +7,7 @@ export default class LikeNodeParser extends AbstractComparisonRqlNodeParser {
 		return 'like';
 	}
 
-	protected createNode(field, value) {
+	protected createNode(field: any, value: any) {
 		return new Like(field, value);
 	}
 }

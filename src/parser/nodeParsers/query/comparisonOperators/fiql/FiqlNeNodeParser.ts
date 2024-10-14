@@ -7,7 +7,7 @@ export default class FiqlNeNodeParser extends AbstractComparisonFiqlNodeParser {
 		return 'ne';
 	}
 
-	protected createNode(field, value) {
+	protected createNode(field: any, value: any) {
 		return new Ne(field, value);
 	}
 }

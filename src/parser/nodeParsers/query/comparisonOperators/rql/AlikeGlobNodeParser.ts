@@ -6,7 +6,7 @@ export default class AlikeGlobNodeParser extends AbstractComparisonRqlNodeParser
 		return 'alike';
 	}
 
-	protected createNode(field, value) {
+	protected createNode(field: any, value: any) {
 		return new AlikeGlob(field, value);
 	}
 }

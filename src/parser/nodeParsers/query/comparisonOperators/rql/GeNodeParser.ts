@@ -7,7 +7,7 @@ export default class GeNodeParser extends AbstractComparisonRqlNodeParser {
 		return 'ge';
 	}
 
-	protected createNode(field, value) {
+	protected createNode(field: any, value: any) {
 		return new Ge(field, value);
 	}
 }

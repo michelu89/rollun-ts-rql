@@ -1,6 +1,5 @@
 import Lexer        from '../src/parser/Lexer';
 import Parser       from '../src/parser/Parser';
-import * as lodash  from 'lodash';
 import Glob         from '../src/parser/Glob';
 import QueryBuilder from '../src/QueryBuilder';
 import {
@@ -38,7 +37,7 @@ function encodeString(value: string) {
 			')': '%29',
 			'*': '%2A'
 		};
-		return encodingMap[value];
+		return (encodingMap as any)[value];
 	});
 }
 
@@ -46,7 +45,7 @@ function testParsing(rql: string, expected: Query, testNumber: number) {
 	const lexer         = new Lexer();
 	const parser        = new Parser();
 	const parsingResult = parser.parse(lexer.tokenize(rql));
-	expect(lodash.isEqual(parsingResult, expected)).toBeTruthy();
+	expect(parsingResult).toEqual(expected);
 }
 
 function testSyntaxError(rql: string, errorMessage: string) {
@@ -55,7 +54,7 @@ function testSyntaxError(rql: string, errorMessage: string) {
 		const parser = new Parser();
 		parser.parse(lexer.tokenize(rql));
 	} catch (error) {
-		expect(error.message).toEqual(errorMessage);
+		expect((error as any).message).toEqual(errorMessage);
 	}
 }
 

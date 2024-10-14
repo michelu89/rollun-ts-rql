@@ -13,7 +13,7 @@ export enum FiqlOperatorMap {
 }
 
 export default class FiqlOperatorSubLexer implements SubLexerInterface {
-	getTokenAt(code, cursor) {
+	getTokenAt(code: any, cursor: any) {
 		const matches = code.slice(cursor).match(new RegExp('^(=[a-z]\\w*=|!=|<>|>=|<=|<|>|==|=)', 'i'));
 		if (matches) {
 			return new Token(
@@ -27,9 +27,9 @@ export default class FiqlOperatorSubLexer implements SubLexerInterface {
 		}
 	}
 
-	private getValue(match) {
-		if ((FiqlOperatorMap[match])) {
-			return FiqlOperatorMap[match];
+	private getValue(match: any) {
+		if (((FiqlOperatorMap as any)[match])) {
+			return (FiqlOperatorMap as any)[match];
 		} else {
 			return match.slice(1, -1);
 		}

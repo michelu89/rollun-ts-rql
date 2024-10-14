@@ -1,16 +1,20 @@
 {
   "name": "rollun-ts-rql",
   "main": "dist/index.js",
+  "type": "module",
   "version": "0.10.0",
   "description": "RQL query object and serializer written in TypeScript",
   "scripts": {
-    "analyse": "node_modules/.bin/tslint --project ./tslint.json -e **/__tests__/**",
-    "fix-style": "node_modules/.bin/tslint --fix --project ./tslint.json",
-    "build": "tsc && babel src --ignore node_modules --out-dir dist --extensions '.ts' --minified",
-    "test": "jest",
-    "test:ci": "jest --coverage --coverageReporters=\"json-summary\"  --watchAll=false",
-    "test:coverage": "jest --coverage",
-    "update:badge": "node ./updateBadge.js"
+    "build": "vite build",
+    "preview": "vite preview",
+    "build:types": "tsc --declaration",
+    "build:all": "npm run build && npm run build:types && node copyPackageAndReadme.cjs",
+    "analyse": "eslint 'src/**/*.{js,ts,tsx}'",
+    "fix-style": "eslint 'src/**/*.{js,ts,tsx}' --fix",
+    "test": "jest --config jest.config.cjs",
+    "test:ci": "jest --config jest.config.cjs --coverage --coverageReporters=\"json-summary\"  --watchAll=false",
+    "test:coverage": "jest --config jest.config.cjs --coverage",
+    "update:badge": "node ./updateBadge.cjs"
   },
   "jest": {
     "coverageReporters": [
@@ -41,23 +45,24 @@
   },
   "homepage": "https://github.com/rollun-com/rollun-ts-rql#readme",
   "devDependencies": {
-    "@babel/cli": "^7.15.7",
-    "@babel/core": "^7.11.6",
-    "@babel/plugin-proposal-class-properties": "^7.10.4",
-    "@babel/preset-env": "^7.11.5",
-    "@babel/preset-typescript": "^7.10.4",
-    "@types/jest": "^24.9.1",
-    "jest": "^27.2.4",
-    "ts-jest": "^27.0.5",
-    "ts-node": "^7.0.1",
-    "tslint": "^5.12.0",
-    "typescript": "3.8.3"
-  },
-  "dependencies": {
-    "locutus": "^2.0.15",
-    "lodash": "^4.17.21"
+    "@eslint/js": "^8.57.1",
+    "@types/jest": "^29.5.13",
+    "@typescript-eslint/eslint-plugin": "^8.8.1",
+    "@typescript-eslint/eslint-plugin-tslint": "^7.0.2",
+    "@typescript-eslint/parser": "^8.8.1",
+    "eslint": "^8.57.1",
+    "eslint-plugin-jsdoc": "^50.3.2",
+    "globals": "^15.11.0",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.2.5",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.4.4",
+    "typescript-eslint": "^8.8.1",
+    "vite": "^5.4.8",
+    "vite-tsconfig-paths": "^5.0.1"
   },
   "files": [
     "dist/*"
-  ]
+  ],
+  "module": "rollun-ts-rql.es.js"
 }

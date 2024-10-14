@@ -13,11 +13,11 @@ export default abstract class AbstractComparisonOperatorNodeParser implements No
 		this.valueParser = valueParser;
 	}
 
-	protected abstract createNode(field, value);
+	protected abstract createNode(field: any, value: any): any;
 
 	abstract parse(tokenStream: TokenStream): AbstractNode;
 
 	abstract supports(tokenStream: TokenStream): boolean;
 
-	protected abstract getOperatorName();
+	protected abstract getOperatorName(): any;
 }

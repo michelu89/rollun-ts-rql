@@ -50,9 +50,6 @@ export default class TokenStream {
 		const normalizedType = Array.isArray(type)
 			? type
 			: [type];
-		const normalizedValue = Array.isArray(value)
-			? value
-			: [value];
 		const token = this.getCurrent();
 		if (!this.test(type, value)) {
 			const expectedMessage = value

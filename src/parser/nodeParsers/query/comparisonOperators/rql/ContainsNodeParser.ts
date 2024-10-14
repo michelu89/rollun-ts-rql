@@ -7,7 +7,7 @@ export default class ContainsNodeParser extends AbstractComparisonRqlNodeParser 
 		return 'contains';
 	}
 
-	protected createNode(field, value) {
+	protected createNode(field: any, value: any) {
 		return new Contains(field, value);
 	}
 }

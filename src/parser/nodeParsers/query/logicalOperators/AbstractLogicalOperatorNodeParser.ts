@@ -10,9 +10,9 @@ export default abstract class AbstractLogicalOperatorNodeParser implements NodeP
 		this.conditionParser = conditionParser;
 	}
 
-	protected abstract createNode(queries: any[]);
+	protected abstract createNode(queries: any[]): any;
 
-	protected abstract getOperatorName();
+	protected abstract getOperatorName(): any;
 
 	parse(tokenStream: TokenStream) {
 		tokenStream.expect(TokenTypeNameMap.T_OPERATOR, this.getOperatorName());

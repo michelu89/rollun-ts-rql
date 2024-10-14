@@ -8,7 +8,7 @@ import RqlParser        from '../src/RqlParser';
 
 
 describe('Speed test', () => {
-	let stringsToParse = [];
+	let stringsToParse: any[] = [];
 	for (let i = 0; i < 1000; i++) {
 		const rql = QueryStringifier.stringify(new Query({
 			select: new Select(['one', 'two', 'three', 'four']),
