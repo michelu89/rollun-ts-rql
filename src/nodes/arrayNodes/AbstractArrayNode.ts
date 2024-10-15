@@ -7,7 +7,7 @@ export default abstract class AbstractArrayNode extends AbstractQueryNode {
 
 	constructor(field: string, values: any[]) {
 		super();
-		this._field  = field;
+		this._field = field;
 		this._values = values;
 	}
 
@@ -28,11 +28,7 @@ export default abstract class AbstractArrayNode extends AbstractQueryNode {
 	}
 
 	addValue(value: any) {
-		return this.addValueAt(value, this._values.length);
-	}
-
-	addValueAt(value: any, at: number) {
-		const v = Array.isArray(value) ? value : [ value ];
+		const v = Array.isArray(value) ? value : [value];
 		this._values.splice(value, 0, ...v);
 		return this;
 	}

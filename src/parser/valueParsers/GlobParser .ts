@@ -5,7 +5,7 @@ import Glob                   from '../Glob';
 
 export default class GlobParser implements SubParserInterface {
 	/**
-	 * @var array Allowed types to convert to glob
+	 * @member array Allowed types to convert to glob
 	 */
 	protected static allowedTypes = [
 		TokenTypeNameMap.T_INTEGER,

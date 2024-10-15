@@ -16,6 +16,11 @@ export default class StringSubLexer implements SubLexerInterface {
 	}
 }
 
+/**
+ * Checks if the given string consists only of digits.
+ * @param {string} str - The string to be checked.
+ * @returns {boolean} - Returns true if the string contains only digits, otherwise false.
+ */
 function ctype_digit(str: string): boolean {
 	return /^[0-9]+$/.test(str);
 }

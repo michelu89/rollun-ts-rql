@@ -4,7 +4,7 @@ import Token, { TokenTypeNameMap } from '../Token';
 
 export default class ScalarParser implements SubParserInterface {
 	/**
-	 * @var TypeCasterInterface[]
+	 * @member TypeCasterInterface[]
 	 */
 	protected typeCasters: {[key: string]: TypeCasterInterface} = {};
 

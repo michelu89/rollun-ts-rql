@@ -18,7 +18,7 @@ export default class ArrayParser implements SubParserInterface {
 			if (!tokenStream.nextIf(TokenTypeNameMap.T_COMMA)) {
 				break;
 			}
-		} while (true);
+		} while (tokenStream.hasNext());
 		tokenStream.expect(TokenTypeNameMap.T_CLOSE_PARENTHESIS);
 		return values;
 	}

@@ -1,5 +1,5 @@
 import TokenStream from '../../TokenStream';
-import Token, { TokenTypeNameMap } from '../../Token';
+import { TokenTypeNameMap } from '../../Token';
 import { NodeParserInterface } from '../../interfaces';
 import AggregateFunctionNode from '../../../nodes/aggregateNodes/AggregateFunctionNode';
 import AggregateSelect from '../../../nodes/aggregateNodes/AggregateSelect';
@@ -30,7 +30,7 @@ export default class AggregateSelectNodeParser implements NodeParserInterface {
 			if (!tokenStream.nextIf(TokenTypeNameMap.T_COMMA)) {
 				break;
 			}
-		} while (true);
+		} while (tokenStream.hasNext());
 		tokenStream.expect(TokenTypeNameMap.T_CLOSE_PARENTHESIS);
 		return new AggregateSelect(fields);
 	}

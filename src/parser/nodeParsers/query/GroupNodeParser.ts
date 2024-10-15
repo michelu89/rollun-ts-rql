@@ -37,7 +37,7 @@ export default class GroupNodeParser implements NodeParserInterface {
 					break;
 				}
 			}
-		} while (true);
+		} while (tokenStream.hasNext());
 		tokenStream.expect(TokenTypeNameMap.T_CLOSE_PARENTHESIS);
 		if (operator === TokenTypeNameMap.T_VERTICAL_BAR) {
 			return new Or(queries);

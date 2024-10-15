@@ -17,7 +17,7 @@ export default abstract class AbstractComparisonFiqlNodeParser extends AbstractC
 			tokenStream = cloneDeep(tokenStream);
 			this.fieldNameParser.parse(tokenStream);
 			return tokenStream.test(TokenTypeNameMap.T_OPERATOR, this.getOperatorName());
-		} catch (error) {
+		} catch {
 			return false;
 		}
 	}

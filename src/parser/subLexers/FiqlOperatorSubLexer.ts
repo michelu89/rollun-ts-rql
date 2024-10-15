@@ -1,6 +1,7 @@
 import { SubLexerInterface } from '../interfaces';
 import Token, { TokenTypeNameMap } from '../Token';
 
+/* eslint-disable @typescript-eslint/no-duplicate-enum-values */
 export enum FiqlOperatorMap {
 	'=' = 'eq',
 	'==' = 'eq',
